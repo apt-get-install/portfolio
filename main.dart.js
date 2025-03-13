@@ -51961,7 +51961,7 @@ return B.c.aw(r,s)},
 $S:344}
 A.yJ.prototype={
 S(a){var s=null
-return new A.q_(B.Bv,"Flutter Demodd",A.a2n(s,A.a4d(B.J,s,s,B.Bh),s),s)}}
+return new A.q_(B.Bv,"Flutter Demo",A.a2n(s,A.a4d(B.J,s,s,B.Bh),s),s)}}
 A.qc.prototype={
 aj(){return new A.u4()}}
 A.u4.prototype={
