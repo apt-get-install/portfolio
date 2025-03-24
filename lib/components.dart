@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:timeline_list/timeline_list.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 class TabsWeb extends StatefulWidget {
-  final String title;
+  const TabsWeb({
+    super.key,
+    required this.title,
+    required this.route,
+  });
 
-  const TabsWeb({super.key, required this.title});
+  final String title;
+  final String route;
 
   @override
   State<TabsWeb> createState() => _TabsWebState();
@@ -15,41 +22,85 @@ class _TabsWebState extends State<TabsWeb> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          isSelected = true;
-        });
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(widget.route);
       },
-      onExit: (_) {
-        setState(() {
-          isSelected = false;
-        });
-      },
-      child: AnimatedDefaultTextStyle(
-        duration: const Duration(milliseconds: 100),
-        style: isSelected
-            ? GoogleFonts.roboto(
-                shadows: [
-                  const Shadow(
-                    color: Colors.black,
-                    offset: Offset(0, -8),
-                  ),
-                ],
-                fontSize: 25.0,
-                color: Colors.transparent,
-                decoration: TextDecoration.underline,
-                decorationThickness: 2,
-                decorationColor: Colors.tealAccent,
-              )
-            : GoogleFonts.roboto(
-                fontSize: 23.0,
-                color: Colors.black,
-              ),
-        child: Text(
-          widget.title,
+      child: MouseRegion(
+        onEnter: (_) {
+          setState(() {
+            isSelected = true;
+          });
+        },
+        onExit: (_) {
+          setState(() {
+            isSelected = false;
+          });
+        },
+        child: AnimatedDefaultTextStyle(
+          duration: const Duration(milliseconds: 100),
+          style: isSelected
+              ? GoogleFonts.roboto(
+                  shadows: [
+                    const Shadow(
+                      color: Colors.black,
+                      offset: Offset(0, -8),
+                    ),
+                  ],
+                  fontSize: 25.0,
+                  color: Colors.transparent,
+                  decoration: TextDecoration.underline,
+                  decorationThickness: 2,
+                  decorationColor: Colors.tealAccent,
+                )
+              : GoogleFonts.roboto(
+                  fontSize: 20.0,
+                  color: Colors.black,
+                ),
+          child: Text(
+            widget.title,
+          ),
         ),
       ),
+    );
+  }
+}
+
+class TabsMobile extends StatefulWidget {
+  const TabsMobile({
+    super.key,
+    required this.text,
+    required this.route,
+  });
+
+  final text;
+  final route;
+
+  @override
+  State<TabsMobile> createState() => _TabsMobileState();
+}
+
+class _TabsMobileState extends State<TabsMobile> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      elevation: 20.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      height: 50.0,
+      minWidth: 200.0,
+      color: Colors.black,
+      child: Text(
+        widget.text,
+        style: GoogleFonts.openSans(
+          fontSize: 20.0,
+          color: Colors.white,
+        ),
+      ),
+      onPressed: () {
+        Navigator.of(context).pushNamed(widget.route);
+      },
     );
   }
 }
@@ -98,17 +149,44 @@ class SansBold extends StatelessWidget {
   }
 }
 
+class AbleCustom extends StatelessWidget {
+  const AbleCustom({
+    super.key,
+    required this.text,
+    required this.size,
+    this.color,
+    this.fontWeight,
+  });
+
+  final text;
+  final size;
+  final color;
+  final fontWeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.abel(
+        fontSize: size,
+        color: color ?? Colors.black,
+        fontWeight: fontWeight ?? FontWeight.normal,
+      ),
+    );
+  }
+}
+
 class TextForm extends StatelessWidget {
   const TextForm({
     super.key,
     required this.heading,
-    required this.width,
+    required this.containerWidth,
     required this.hintText,
     this.maxLines,
   });
 
   final heading;
-  final width;
+  final containerWidth;
   final hintText;
   final maxLines;
 
@@ -125,7 +203,7 @@ class TextForm extends StatelessWidget {
           height: 5,
         ),
         SizedBox(
-          width: width,
+          width: containerWidth,
           child: TextFormField(
             // inputFormatters: [
             //   LengthLimitingTextInputFormatter(10),
@@ -180,25 +258,29 @@ class TextForm extends StatelessWidget {
   }
 }
 
-class AnimatedCardWeb extends StatefulWidget {
-  const AnimatedCardWeb({
+class AnimatedCard extends StatefulWidget {
+  const AnimatedCard({
     super.key,
     required this.imagePath,
-    required this.text,
-    required this.fit,
-    required this.reverse,
+    this.text,
+    this.fit,
+    this.reverse,
+    this.height,
+    this.width,
   });
 
   final imagePath;
   final text;
   final fit;
   final reverse;
+  final height;
+  final width;
 
   @override
-  State<AnimatedCardWeb> createState() => _AnimatedCardWebState();
+  State<AnimatedCard> createState() => _AnimatedCardState();
 }
 
-class _AnimatedCardWebState extends State<AnimatedCardWeb>
+class _AnimatedCardState extends State<AnimatedCard>
     with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     vsync: this,
@@ -237,15 +319,50 @@ class _AnimatedCardWebState extends State<AnimatedCardWeb>
               Image.asset(
                 widget.imagePath,
                 fit: widget.fit,
-                width: 200,
-                height: 200,
+                width: widget.width ?? 200,
+                height: widget.height ?? 200,
               ),
               const SizedBox(
                 height: 10.0,
               ),
-              const SansBold(text: "MES 잘해요", size: 15),
+              widget.text == null
+                  ? const SizedBox()
+                  : SansBold(text: widget.text, size: 15),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ProjectInfo extends StatelessWidget {
+  const ProjectInfo({
+    super.key,
+    required this.isFirst,
+    required this.isLast,
+    required this.isPast,
+  });
+
+  final isFirst;
+  final isLast;
+  final isPast;
+
+  @override
+  Widget build(BuildContext context) {
+    return TimelineTile(
+      isFirst: isFirst,
+      isLast: isLast,
+      beforeLineStyle: LineStyle(
+        color: isPast ? Colors.tealAccent : Colors.grey,
+        thickness: 2.0,
+      ),
+      indicatorStyle: IndicatorStyle(
+        width: 40.0,
+        color: isPast ? Colors.tealAccent : Colors.grey,
+        iconStyle: IconStyle(
+          color: isPast ? Colors.white : Colors.grey,
+          iconData: Icons.check,
         ),
       ),
     );
