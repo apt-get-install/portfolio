@@ -12,80 +12,13 @@ class AboutWeb extends StatefulWidget {
 }
 
 class _AboutWebState extends State<AboutWeb> {
-  urlLancher(String imgPath, String url) {
-    return IconButton(
-      icon: SvgPicture.asset(
-        imgPath,
-        color: Colors.white,
-        width: 35.0,
-      ),
-      onPressed: () async {
-        await launchUrl(Uri.parse(url));
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
     var heightDevice = MediaQuery.of(context).size.height;
-    tealContainer(String text) {
-      return Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.tealAccent,
-            style: BorderStyle.solid,
-            width: 2.0,
-          ),
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        padding: const EdgeInsets.all(7.0),
-        child: Text(
-          text,
-          style: GoogleFonts.openSans(fontSize: 15),
-        ),
-      );
-    }
 
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              radius: 72,
-              backgroundColor: Colors.tealAccent,
-              child: CircleAvatar(
-                radius: 70.0,
-                backgroundColor: Colors.white,
-                backgroundImage: AssetImage("assets/profile.png"),
-              ),
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
-            const SansBold(
-              text: "SooHo Choi",
-              size: 30.0,
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                urlLancher("assets/instagram.svg", "https://www.naver.com"),
-                urlLancher("assets/twitter.svg", "https://www.naver.com"),
-                urlLancher(
-                  "assets/github.svg",
-                  "https://www.github.com/apt-get-install",
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      // drawer: const DrawerWeb(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -101,14 +34,14 @@ class _AboutWebState extends State<AboutWeb> {
             ),
             TabsWeb(title: "Home", route: "/"),
             Spacer(),
-            TabsWeb(title: "Works", route: "/works"),
-            Spacer(),
-            TabsWeb(title: "Blog", route: "/blog"),
-            Spacer(),
             TabsWeb(title: "About", route: "/about"),
             Spacer(),
-            TabsWeb(title: "Contact", route: "/contact"),
+            TabsWeb(title: "Projects", route: "/projects"),
             Spacer(),
+            // TabsWeb(title: "Blog", route: "/blog"),
+            // Spacer(),
+            // TabsWeb(title: "Contact", route: "/contact"),
+            // Spacer(),
           ],
         ),
       ),

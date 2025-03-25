@@ -15,67 +15,7 @@ class _ContactWebState extends State<ContactWeb> {
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              radius: 72.0,
-              backgroundColor: Colors.tealAccent,
-              child: CircleAvatar(
-                radius: 70.0,
-                backgroundColor: Colors.white,
-                backgroundImage: AssetImage('assets/profile.png'),
-              ),
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
-            const SansBold(text: "수호 최", size: 30.0),
-            const SizedBox(
-              height: 15.0,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  onPressed: () async {
-                    await launchUrl(Uri.parse("https://naver.com"));
-                  },
-                  icon: SvgPicture.asset(
-                    "assets/instagram.svg",
-                    color: Colors.black,
-                    width: 35.0,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () async {
-                    await launchUrl(Uri.parse("https://naver.com"));
-                  },
-                  icon: SvgPicture.asset(
-                    "assets/twitter.svg",
-                    color: Colors.black,
-                    width: 35.0,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () async {
-                    await launchUrl(
-                      Uri.parse("https://github.com/apt-get-install"),
-                    );
-                  },
-                  icon: SvgPicture.asset(
-                    "assets/github.svg",
-                    color: Colors.black,
-                    width: 35.0,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      // drawer: const DrawerWeb(),
       backgroundColor: Colors.white,
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -107,8 +47,8 @@ class _ContactWebState extends State<ContactWeb> {
                   Spacer(),
                   TabsWeb(title: "About", route: "/about"),
                   Spacer(),
-                  TabsWeb(title: "Contact", route: "/contact"),
-                  Spacer(),
+                  // TabsWeb(title: "Contact", route: "/contact"),
+                  // Spacer(),
                 ],
               ),
             ),

@@ -36,7 +36,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
-      extendBodyBehindAppBar: true,
+      extendBodyBehindAppBar: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -46,76 +46,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
           color: Colors.black,
         ),
       ),
-      endDrawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            DrawerHeader(
-              padding: const EdgeInsets.only(bottom: 20.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.black,
-                    width: 2,
-                  ),
-                ),
-                child: Image.asset(
-                  'assets/profile.png',
-                  filterQuality: FilterQuality.high,
-                ),
-              ),
-            ),
-            const TabsMobile(text: "Home", route: "/"),
-            const SizedBox(height: 20.0),
-            const TabsMobile(text: "Works", route: "/works"),
-            const SizedBox(height: 20.0),
-            const TabsMobile(text: "Blog", route: "/blog"),
-            const SizedBox(height: 20.0),
-            const TabsMobile(text: "About", route: "/about"),
-            const SizedBox(height: 20.0),
-            const TabsMobile(text: "Contact", route: "/contact"),
-            const SizedBox(height: 40.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  onPressed: () async {
-                    await launchUrl(Uri.parse("https://naver.com"));
-                  },
-                  icon: SvgPicture.asset(
-                    "assets/instagram.svg",
-                    color: Colors.black,
-                    width: 35.0,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () async {
-                    await launchUrl(Uri.parse("https://naver.com"));
-                  },
-                  icon: SvgPicture.asset(
-                    "assets/twitter.svg",
-                    color: Colors.black,
-                    width: 35.0,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () async {
-                    await launchUrl(
-                      Uri.parse("https://github.com/apt-get-install"),
-                    );
-                  },
-                  icon: SvgPicture.asset(
-                    "assets/github.svg",
-                    color: Colors.black,
-                    width: 35.0,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      endDrawer: const DrawerMobile(),
       body: ListView(
         children: [
           // First Section
@@ -126,6 +57,9 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
               radius: 115.0,
               backgroundImage: AssetImage('assets/profile.png'),
             ),
+          ),
+          const SizedBox(
+            height: 10.0,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -149,10 +83,10 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                         vertical: 10.0,
                         horizontal: 20.0,
                       ),
-                      child: const SansBold(text: "Hello I'm", size: 15),
+                      child: const SansBold(text: "안녕하세요! 저는,", size: 15),
                     ),
-                    const SansBold(text: "최수호 입니다.", size: 40.0),
-                    const SansBold(text: "웹개발자 입니다.", size: 20.0),
+                    const SansBold(text: "최수호", size: 40.0),
+                    const SansBold(text: "Spring 웹 개발자 입니다.", size: 20.0),
                   ],
                 ),
                 const SizedBox(
@@ -177,9 +111,18 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                       direction: Axis.vertical,
                       spacing: 9.0,
                       children: [
-                        Sans(text: "ekr7777777@gmail.com", size: 15),
-                        Sans(text: "010-5094-4855", size: 15),
-                        Sans(text: "Anyang", size: 15),
+                        Sans(
+                          text: "ekr7777777@gmail.com",
+                          size: 15,
+                        ),
+                        Sans(
+                          text: "010-5094-4855",
+                          size: 15,
+                        ),
+                        Sans(
+                          text: "Anyang, South Korea",
+                          size: 15,
+                        ),
                       ],
                     ),
                   ],
@@ -188,7 +131,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
             ),
           ),
           const SizedBox(
-            height: 90,
+            height: 70,
           ),
           // About Me, Second Section
           Padding(
@@ -225,83 +168,83 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
             height: 60,
           ),
           // What I do, Third Section
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SansBold(text: "What I do?", size: 35),
-              const AnimatedCard(
+              SansBold(text: "What I do?", size: 35),
+              AnimatedCard(
                 imagePath: "assets/webL.png",
                 text: "Web Dev",
                 width: 300,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 35.0,
               ),
-              const AnimatedCard(
+              AnimatedCard(
                 imagePath: "assets/app.png",
                 text: "App Dev",
                 width: 300,
                 fit: BoxFit.contain,
                 reverse: true,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 35.0,
               ),
-              const AnimatedCard(
+              AnimatedCard(
                 imagePath: "assets/firebase.png",
                 text: "Back Dev",
                 width: 300,
               ),
-              const SizedBox(
+              SizedBox(
                 height: 60.0,
               ),
 
               // Contact Fourth Section
-              Wrap(
-                runSpacing: 20.0,
-                spacing: 20.0,
-                alignment: WrapAlignment.center,
-                children: [
-                  const SansBold(text: "Contct Me", size: 35.0),
-                  TextForm(
-                    heading: "First Name",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type your first name",
-                  ),
-                  TextForm(
-                    heading: "Last Name",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type your last name",
-                  ),
-                  TextForm(
-                    heading: "Email",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type your Email",
-                  ),
-                  TextForm(
-                    heading: "Phone Number",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Please type your Phone Number",
-                  ),
-                  TextForm(
-                    heading: "Message",
-                    containerWidth: widthDevice / 1.4,
-                    hintText: "Message",
-                    maxLines: 10,
-                  ),
-                  MaterialButton(
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    height: 60.0,
-                    minWidth: widthDevice / 2.2,
-                    color: Colors.tealAccent,
-                    child: const SansBold(text: "Submit", size: 20.0),
-                  ),
-                ],
-              ),
-              const SizedBox(
+              // Wrap(
+              //   runSpacing: 20.0,
+              //   spacing: 20.0,
+              //   alignment: WrapAlignment.center,
+              //   children: [
+              //     const SansBold(text: "Contct Me", size: 35.0),
+              //     TextForm(
+              //       heading: "First Name",
+              //       containerWidth: widthDevice / 1.4,
+              //       hintText: "Please type your first name",
+              //     ),
+              //     TextForm(
+              //       heading: "Last Name",
+              //       containerWidth: widthDevice / 1.4,
+              //       hintText: "Please type your last name",
+              //     ),
+              //     TextForm(
+              //       heading: "Email",
+              //       containerWidth: widthDevice / 1.4,
+              //       hintText: "Please type your Email",
+              //     ),
+              //     TextForm(
+              //       heading: "Phone Number",
+              //       containerWidth: widthDevice / 1.4,
+              //       hintText: "Please type your Phone Number",
+              //     ),
+              //     TextForm(
+              //       heading: "Message",
+              //       containerWidth: widthDevice / 1.4,
+              //       hintText: "Message",
+              //       maxLines: 10,
+              //     ),
+              //     MaterialButton(
+              //       onPressed: () {},
+              //       shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(10.0),
+              //       ),
+              //       height: 60.0,
+              //       minWidth: widthDevice / 2.2,
+              //       color: Colors.tealAccent,
+              //       child: const SansBold(text: "Submit", size: 20.0),
+              //     ),
+              //   ],
+              // ),
+              SizedBox(
                 height: 20.0,
               ),
             ],

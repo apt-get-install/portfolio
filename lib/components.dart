@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timeline_list/timeline_list.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TabsWeb extends StatefulWidget {
   const TabsWeb({
@@ -364,6 +366,161 @@ class ProjectInfo extends StatelessWidget {
           color: isPast ? Colors.white : Colors.grey,
           iconData: Icons.check,
         ),
+      ),
+    );
+  }
+}
+
+class DrawerMobile extends StatelessWidget {
+  const DrawerMobile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Drawer(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          DrawerHeader(
+            padding: EdgeInsets.only(bottom: 20.0),
+            child: CircleAvatar(
+              radius: 57.0,
+              backgroundColor: Colors.black,
+              child: CircleAvatar(
+                radius: 55.0,
+                backgroundImage: AssetImage('assets/profile.png'),
+              ),
+            ),
+            // Container(
+            //   decoration: BoxDecoration(
+            //     shape: BoxShape.circle,
+            //     border: Border.all(
+            //       color: Colors.black,
+            //       width: 2,
+            //     ),
+            //   ),
+            //   child: Image.asset(
+            //     'assets/profile.png',
+            //     filterQuality: FilterQuality.high,
+            //   ),
+            // ),
+          ),
+          SizedBox(height: 30.0),
+          TabsMobile(text: "Home", route: "/"),
+          SizedBox(height: 20.0),
+          TabsMobile(text: "About", route: "/about"),
+          SizedBox(height: 20.0),
+          TabsMobile(text: "Projects", route: "/projects"),
+          SizedBox(height: 20.0),
+          // const SizedBox(height: 20.0),
+          // const TabsMobile(text: "Contact", route: "/contact"),
+          SizedBox(height: 40.0),
+          //   Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //     children: [
+          //       IconButton(
+          //         onPressed: () async {
+          //           await launchUrl(Uri.parse("https://naver.com"));
+          //         },
+          //         icon: SvgPicture.asset(
+          //           "assets/instagram.svg",
+          //           color: Colors.black,
+          //           width: 35.0,
+          //         ),
+          //       ),
+          //       IconButton(
+          //         onPressed: () async {
+          //           await launchUrl(Uri.parse("https://naver.com"));
+          //         },
+          //         icon: SvgPicture.asset(
+          //           "assets/twitter.svg",
+          //           color: Colors.black,
+          //           width: 35.0,
+          //         ),
+          //       ),
+          //       IconButton(
+          //         onPressed: () async {
+          //           await launchUrl(
+          //             Uri.parse("https://github.com/apt-get-install"),
+          //           );
+          //         },
+          //         icon: SvgPicture.asset(
+          //           "assets/github.svg",
+          //           color: Colors.black,
+          //           width: 35.0,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+        ],
+      ),
+    );
+  }
+}
+
+class DrawerWeb extends StatelessWidget {
+  const DrawerWeb({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const CircleAvatar(
+            radius: 72.0,
+            backgroundColor: Colors.tealAccent,
+            child: CircleAvatar(
+              radius: 70.0,
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage('assets/profile.png'),
+            ),
+          ),
+          const SizedBox(
+            height: 15.0,
+          ),
+          const SansBold(text: "최수호", size: 30.0),
+          const SizedBox(
+            height: 15.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: () async {
+                  await launchUrl(Uri.parse("https://naver.com"));
+                },
+                icon: SvgPicture.asset(
+                  "assets/instagram.svg",
+                  color: Colors.black,
+                  width: 35.0,
+                ),
+              ),
+              IconButton(
+                onPressed: () async {
+                  await launchUrl(Uri.parse("https://naver.com"));
+                },
+                icon: SvgPicture.asset(
+                  "assets/twitter.svg",
+                  color: Colors.black,
+                  width: 35.0,
+                ),
+              ),
+              IconButton(
+                onPressed: () async {
+                  await launchUrl(
+                    Uri.parse("https://github.com/apt-get-install"),
+                  );
+                },
+                icon: SvgPicture.asset(
+                  "assets/github.svg",
+                  color: Colors.black,
+                  width: 35.0,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

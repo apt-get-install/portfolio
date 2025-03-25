@@ -3,14 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class WorksMobile extends StatefulWidget {
-  const WorksMobile({super.key});
+class ProjectsMobile extends StatefulWidget {
+  const ProjectsMobile({super.key});
 
   @override
-  State<WorksMobile> createState() => _WorksMobileState();
+  State<ProjectsMobile> createState() => _ProjectsMobileState();
 }
 
-class _WorksMobileState extends State<WorksMobile> {
+class _ProjectsMobileState extends State<ProjectsMobile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(

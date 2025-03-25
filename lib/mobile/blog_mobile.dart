@@ -18,76 +18,7 @@ class _BlogMobileState extends State<BlogMobile> {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.white,
-        endDrawer: Drawer(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DrawerHeader(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                  ),
-                  child: Image.asset(
-                    'assets/profile.png',
-                    filterQuality: FilterQuality.high,
-                  ),
-                ),
-              ),
-              const TabsMobile(text: "Home", route: "/"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "Works", route: "/works"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "Blog", route: "/blog"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "About", route: "/about"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "Contact", route: "/contact"),
-              const SizedBox(height: 40.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () async {
-                      await launchUrl(Uri.parse("https://naver.com"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/instagram.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () async {
-                      await launchUrl(Uri.parse("https://naver.com"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/twitter.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () async {
-                      await launchUrl(
-                        Uri.parse("https://github.com/apt-get-install"),
-                      );
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/github.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        endDrawer: const DrawerMobile(),
         body: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[

@@ -3,14 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class WorksWeb extends StatefulWidget {
-  const WorksWeb({super.key});
+class ProjectsWeb extends StatefulWidget {
+  const ProjectsWeb({super.key});
 
   @override
-  State<WorksWeb> createState() => _WorksWebState();
+  State<ProjectsWeb> createState() => _ProjectsWebState();
 }
 
-class _WorksWebState extends State<WorksWeb> {
+class _ProjectsWebState extends State<ProjectsWeb> {
   @override
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;

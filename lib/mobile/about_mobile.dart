@@ -39,83 +39,14 @@ class AboutMobile extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        endDrawer: Drawer(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              DrawerHeader(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                  ),
-                  child: Image.asset(
-                    'assets/profile.png',
-                    filterQuality: FilterQuality.high,
-                  ),
-                ),
-              ),
-              const TabsMobile(text: "Home", route: "/"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "Works", route: "/works"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "Blog", route: "/blog"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "About", route: "/about"),
-              const SizedBox(height: 20.0),
-              const TabsMobile(text: "Contact", route: "/contact"),
-              const SizedBox(height: 40.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () async {
-                      await launchUrl(Uri.parse("https://naver.com"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/instagram.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () async {
-                      await launchUrl(Uri.parse("https://naver.com"));
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/twitter.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () async {
-                      await launchUrl(
-                        Uri.parse("https://github.com/apt-get-install"),
-                      );
-                    },
-                    icon: SvgPicture.asset(
-                      "assets/github.svg",
-                      color: Colors.black,
-                      width: 35.0,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        endDrawer: const DrawerMobile(),
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 20.0,
           ),
           child: ListView(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 117.0,
                 backgroundColor: Colors.tealAccent,
                 child: CircleAvatar(
@@ -123,10 +54,8 @@ class AboutMobile extends StatelessWidget {
                   backgroundColor: Colors.black,
                   child: CircleAvatar(
                     radius: 110.0,
-                    backgroundColor: Colors.white,
-                    child: Image.asset(
+                    backgroundImage: AssetImage(
                       "assets/profile.png",
-                      filterQuality: FilterQuality.high,
                     ),
                   ),
                 ),
