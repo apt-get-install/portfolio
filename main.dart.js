@@ -79807,7 +79807,7 @@ return A.cJ(s,A.eu(a,s,s,s,A.ve().$1$fontSize(15),s,s),B.q,s,new A.bV(s,s,r,q,s,
 K(a){var s,r=this,q=null
 A.bf(a,q,t.w).toString
 s=t.p
-return A.ip(A.Gj(q,q,q,!0,B.y,q,1,q,q,0,!1,q,!1,q,B.cx,q,q,!0,q,q,q,q,q,q,q,q,q,1,q),B.j,A.ku(A.b([B.BC,B.aZ,new A.cE(B.e6,A.eF(A.b([B.Oh,A.eF(A.b([A.cJ(q,B.xi,B.q,q,B.l7,q,q,q,B.mg,q,q,q),B.M1,B.M_],s),B.az,B.G,B.u),B.bo,B.LX],s),B.az,B.G,B.u),q),B.yt,new A.cE(B.e6,A.eF(A.b([B.xe,B.xp,B.xs,B.xl,B.aZ,A.apB(B.c_,A.b([r.hS("Java"),r.hS("Spring"),r.hS("React"),r.hS("Flutter"),r.hS("Dart"),r.hS("Python")],s),7,7)],s),B.az,B.da,B.u),q),B.ys,B.D2],s)),B.d1,!1)}}
+return A.ip(A.Gj(q,q,q,!1,B.y,q,1,q,q,0,!1,q,!1,q,B.cx,q,q,!0,q,q,q,q,q,q,q,q,q,1,q),B.j,A.ku(A.b([B.BC,B.aZ,new A.cE(B.e6,A.eF(A.b([B.Oh,A.eF(A.b([A.cJ(q,B.xi,B.q,q,B.l7,q,q,q,B.mg,q,q,q),B.M1,B.M_],s),B.az,B.G,B.u),B.bo,B.LX],s),B.az,B.G,B.u),q),B.yt,new A.cE(B.e6,A.eF(A.b([B.xe,B.xp,B.xs,B.xl,B.aZ,A.apB(B.c_,A.b([r.hS("Java"),r.hS("Spring"),r.hS("React"),r.hS("Flutter"),r.hS("Dart"),r.hS("Python")],s),7,7)],s),B.az,B.da,B.u),q),B.ys,B.D2],s)),B.d1,!1)}}
 A.z9.prototype={
 af(){return new A.RP()}}
 A.RP.prototype={
