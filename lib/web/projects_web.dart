@@ -69,7 +69,7 @@ class _ProjectsWebState extends State<ProjectsWeb> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const AnimatedCard(
-                      imagePath: "assets/portfolio_screenshot.PNG",
+                      imagePath: "assets/portfolio_screenshot.png",
                       height: 200,
                       width: 300,
                     ),
