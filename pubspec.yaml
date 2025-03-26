@@ -36,6 +36,7 @@ dependencies:
   flutter_svg: ^1.0.3
   url_launcher: ^6.0.18
   url_strategy: ^0.2.0
+  timelines: ^0.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -65,9 +66,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    - assets/certificate.pem
-    - assets/www_sooho.info_cert.crt
-    - assets/www_sooho.info.key
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
