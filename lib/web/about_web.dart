@@ -49,7 +49,7 @@ class _AboutWebState extends State<AboutWeb> {
         children: [
           // first section
           // ignore: sized_box_for_whitespace
-          SizedBox(
+          const SizedBox(
             height: 500.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -59,104 +59,76 @@ class _AboutWebState extends State<AboutWeb> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SansBold(
+                    SansBold(
                       text: "About Me",
                       size: 40,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 15.0,
                     ),
-                    const Sans(
-                      text: "제조 개발자 입니다. 블라블라 ",
+                    Sans(
+                      text: "안녕하세요, 저는 Java기반 Spring 웹 개발자입니다.",
                       size: 15,
                     ),
-                    const Sans(
-                      text: "제조 개발자 입니다. 블라블라 ",
+                    Sans(
+                      text: "MES 및 제조와 관련된 프로젝트를 주력으로 수행하였습니다.",
                       size: 15,
                     ),
-                    const Sans(
-                      text: "제조 개발자 입니다. 블라블라 ",
+                    Sans(
+                      text: "직무와 상관 없이, 새로운 것을 배우는 것을 좋아합니다.",
                       size: 15,
                     ),
-                    const SizedBox(
+                    Sans(
+                      text: "이 홈페이지는 Flutter를 공부하며 만들었습니다.",
+                      size: 15,
+                    ),
+                    SizedBox(
                       height: 10.0,
                     ),
                     Row(
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.tealAccent,
-                              style: BorderStyle.solid,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          padding: const EdgeInsets.all(7.0),
-                          child: const Sans(
-                            text: "Spring Framework",
-                            size: 15,
-                          ),
-                        ),
-                        const SizedBox(
+                        SkillContainerWeb(text: "Java"),
+                        SizedBox(
                           width: 10.0,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.tealAccent,
-                              style: BorderStyle.solid,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          padding: const EdgeInsets.all(7.0),
-                          child: const Sans(
-                            text: "Java",
-                            size: 15,
-                          ),
-                        ),
-                        const SizedBox(
+                        SkillContainerWeb(text: "Spring"),
+                        SizedBox(
                           width: 10.0,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.tealAccent,
-                              style: BorderStyle.solid,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          padding: const EdgeInsets.all(7.0),
-                          child: const Sans(
-                            text: "Vue.js",
-                            size: 15,
-                          ),
-                        ),
-                        const SizedBox(
+                        SkillContainerWeb(text: "JSP"),
+                        SizedBox(
                           width: 10.0,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.tealAccent,
-                              style: BorderStyle.solid,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          padding: const EdgeInsets.all(7.0),
-                          child: const Sans(
-                            text: "Oracle",
-                            size: 15,
-                          ),
+                        SkillContainerWeb(text: "Javascript"),
+                        SizedBox(
+                          width: 10.0,
                         ),
+                        SkillContainerWeb(text: "Vue.js"),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      children: [
+                        SkillContainerWeb(text: "Oracle"),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        SkillContainerWeb(text: "Tibero"),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        SkillContainerWeb(text: "MS-Sql"),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        SkillContainerWeb(text: "MySql"),
                       ],
                     ),
                   ],
                 ),
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 147.0,
                   backgroundColor: Colors.tealAccent,
                   child: CircleAvatar(
@@ -173,6 +145,7 @@ class _AboutWebState extends State<AboutWeb> {
           ),
           // second page
           // ignore: sized_box_for_whitespace
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -223,25 +196,126 @@ class _AboutWebState extends State<AboutWeb> {
           const SizedBox(
             height: 20.0,
           ),
+          //Third row
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const AnimatedCard(
-                imagePath: "assets/firebase.png",
-                height: 250.0,
-                width: 250.0,
+              SizedBox(
+                width: widthDevice / 2.5,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SansBold(
+                      text: "학력",
+                      size: 30,
+                    ),
+                    SizedBox(
+                      child: Divider(
+                        color: Colors.teal,
+                        thickness: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: widthDevice / 2.5,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SansBold(
+                      text: "자격증",
+                      size: 30,
+                    ),
+                    SizedBox(
+                      child: Divider(
+                        color: Colors.teal,
+                        thickness: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(
+                width: widthDevice / 3,
+                child: DataTable(
+                  columns: const [
+                    DataColumn(label: Text('이름')),
+                    DataColumn(
+                      label: Text('출생년도'),
+                      numeric: true,
+                    ),
+                    DataColumn(label: Text('성별')),
+                    DataColumn(label: Text('최종학력')),
+                    DataColumn(label: Text('고향')),
+                  ],
+                  rows: const [
+                    DataRow(
+                      cells: [
+                        DataCell(Text('철수')),
+                        DataCell(Text('1977')),
+                        DataCell(Text('남')),
+                        DataCell(Text('학사')),
+                        DataCell(Text('부산')),
+                      ],
+                    ),
+                    DataRow(
+                      cells: [
+                        DataCell(Text('영희')),
+                        DataCell(Text('1981')),
+                        DataCell(Text('여')),
+                        DataCell(Text('석사')),
+                        DataCell(Text('서울')),
+                      ],
+                    ),
+                  ],
+                ),
+                // const Column(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Sans(
+                //       text: "2019.08 : 성결대학교 영어영문학과/컴퓨터공학과(복수전공) 졸업",
+                //       size: 15,
+                //     ),
+                //     Sans(
+                //       text: "2010.02 : 양명고등학교(인문계) 졸업",
+                //       size: 15,
+                //     ),
+                //   ],
+                // ),
               ),
               SizedBox(
                 width: widthDevice / 3,
                 child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SansBold(text: "Back Dev", size: 30.0),
-                    SizedBox(
-                      height: 15.0,
+                    Sans(
+                      text: "2023.04 : Solutions Architect Associate, 아마존웹서비스",
+                      size: 15,
                     ),
-                    Sans(text: "Back 잘해용", size: 15.0),
+                    Sans(
+                      text: "2019.09 : SQLD(SQL개발자), 한국데이터산업진흥원",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2018.11 : 정보처리기사, 한국산업인력공단",
+                      size: 15,
+                    ),
                   ],
                 ),
+              ),
+              const SizedBox(
+                height: 40,
               ),
             ],
           ),

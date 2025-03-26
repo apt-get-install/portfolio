@@ -57,7 +57,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             // firtst page
             // ignore: sized_box_for_whitespace
             Container(
-              height: heightDevice,
+              height: heightDevice - 56,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -88,11 +88,11 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       // ),
                       const Sans(
                         text: "최수호",
-                        size: 55,
+                        size: 60,
                       ),
                       const Sans(
-                        text: "Spring 웹 개발자 입니다.",
-                        size: 15,
+                        text: "Java기반 Spring 웹 개발자 입니다.",
+                        size: 20,
                       ),
                       const SizedBox(
                         height: 15.0,
@@ -106,7 +106,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                             width: 20.0,
                           ),
                           Sans(
-                            text: "ekr7777777@gmail.com",
+                            text: "apt-get-install@kakao.com",
                             size: 15,
                           ),
                         ],
@@ -140,7 +140,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                             width: 20.0,
                           ),
                           Sans(
-                            text: "Anyang, South Korea",
+                            text: "Anyang, Republic of Korea",
                             size: 15,
                           ),
                         ],
@@ -164,164 +164,136 @@ class _LandingPageWebState extends State<LandingPageWeb> {
             ),
             // second page
             // ignore: sized_box_for_whitespace
-            Container(
-              height: heightDevice / 1.5,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    "assets/aboutme.jpg",
-                    width: 500.0,
-                    height: widthDevice / 1.9,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SansBold(
-                        text: "About Me",
-                        size: 40,
-                      ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      const Sans(
-                        text: "제조 개발자 입니다. 블라블라 ",
-                        size: 15,
-                      ),
-                      const Sans(
-                        text: "제조 개발자 입니다. 블라블라 ",
-                        size: 15,
-                      ),
-                      const Sans(
-                        text: "제조 개발자 입니다. 블라블라 ",
-                        size: 15,
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.tealAccent,
-                                style: BorderStyle.solid,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            padding: const EdgeInsets.all(7.0),
-                            child: const Sans(
-                              text: "Spring Framework",
-                              size: 15,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.tealAccent,
-                                style: BorderStyle.solid,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            padding: const EdgeInsets.all(7.0),
-                            child: const Sans(
-                              text: "Java",
-                              size: 15,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.tealAccent,
-                                style: BorderStyle.solid,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            padding: const EdgeInsets.all(7.0),
-                            child: const Sans(
-                              text: "Vue.js",
-                              size: 15,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.tealAccent,
-                                style: BorderStyle.solid,
-                                width: 2.0,
-                              ),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            padding: const EdgeInsets.all(7.0),
-                            child: const Sans(
-                              text: "Oracle",
-                              size: 15,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 70,
-            ),
+            // Container(
+            //   height: heightDevice / 1.5,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       Image.asset(
+            //         "assets/aboutme.jpg",
+            //         width: 500.0,
+            //         height: widthDevice / 1.9,
+            //       ),
+            //       const Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           SansBold(
+            //             text: "About Me",
+            //             size: 40,
+            //           ),
+            //           SizedBox(
+            //             height: 15.0,
+            //           ),
+            //           Sans(
+            //             text: "안녕하세요, 저는 Java기반 Spring 웹 개발자입니다.",
+            //             size: 15,
+            //           ),
+            //           Sans(
+            //             text: "MES 및 제조와 관련된 프로젝트를 주력으로 수행하였습니다.",
+            //             size: 15,
+            //           ),
+            //           Sans(
+            //             text: "직무와 상관 없이, 새로운 것을 배우는 것을 좋아합니다.",
+            //             size: 15,
+            //           ),
+            //           Sans(
+            //             text: "이 홈페이지는 Flutter를 공부하며, 만들었습니다.",
+            //             size: 15,
+            //           ),
+            //           SizedBox(
+            //             height: 10.0,
+            //           ),
+            //           Row(
+            //             children: [
+            //               SkillContainerWeb(text: "Java"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "Spring"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "JSP"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "Javascript"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "Vue.js"),
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.0,
+            //           ),
+            //           Row(
+            //             children: [
+            //               SkillContainerWeb(text: "Oracle"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "Tibero"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "MS-Sql"),
+            //               SizedBox(
+            //                 width: 10.0,
+            //               ),
+            //               SkillContainerWeb(text: "MySql"),
+            //             ],
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 70,
+            // ),
             // third page
             // ignore: sized_box_for_whitespace
-            Container(
-              height: heightDevice / 1.3,
-              child: const Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SansBold(
-                    text: "내가 뭘할까",
-                    size: 40,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      AnimatedCard(
-                        imagePath: "assets/profile.png",
-                        text: "App Dev",
-                        fit: BoxFit.contain,
-                        reverse: true,
-                      ),
-                      AnimatedCard(
-                        imagePath: "assets/profile.png",
-                        text: "back",
-                        fit: BoxFit.contain,
-                        reverse: false,
-                      ),
-                      AnimatedCard(
-                        imagePath: "assets/profile.png",
-                        text: "Back Dev",
-                        fit: BoxFit.contain,
-                        reverse: true,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
+            // Container(
+            //   height: heightDevice / 1.3,
+            //   child: const Column(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+            //       SansBold(
+            //         text: "내가 뭘할까",
+            //         size: 40,
+            //       ),
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //         children: [
+            //           AnimatedCard(
+            //             imagePath: "assets/profile.png",
+            //             text: "App Dev",
+            //             fit: BoxFit.contain,
+            //             reverse: true,
+            //           ),
+            //           AnimatedCard(
+            //             imagePath: "assets/profile.png",
+            //             text: "back",
+            //             fit: BoxFit.contain,
+            //             reverse: false,
+            //           ),
+            //           AnimatedCard(
+            //             imagePath: "assets/profile.png",
+            //             text: "Back Dev",
+            //             fit: BoxFit.contain,
+            //             reverse: true,
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
             // fourth page
             // ignore: sized_box_for_whitespace
             // Container(
