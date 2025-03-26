@@ -36,7 +36,10 @@ dependencies:
   flutter_svg: ^1.0.3
   url_launcher: ^6.0.18
   url_strategy: ^0.2.0
-  timelines: ^0.1.0
+  timelines:
+    git:
+      url: https://github.com/IamSZaidH/timelines
+      ref: main  # Use the branch containing the Dart 3 compatibility fixes
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

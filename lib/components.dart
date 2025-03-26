@@ -290,8 +290,10 @@ class _AnimatedCardState extends State<AnimatedCard>
   )..repeat(reverse: true);
 
   late final Animation<Offset> _animation = Tween(
-    begin: widget.reverse == true ? const Offset(0, 0.08) : Offset.zero,
-    end: widget.reverse == true ? Offset.zero : const Offset(0, 0.08),
+    // begin: widget.reverse == true ? const Offset(0, 0.08) : Offset.zero,
+    // end: widget.reverse == true ? Offset.zero : const Offset(0, 0.08),
+    begin: Offset.zero,
+    end: Offset.zero,
   ).animate(_controller);
 
   @override
@@ -305,7 +307,7 @@ class _AnimatedCardState extends State<AnimatedCard>
     return SlideTransition(
       position: _animation,
       child: Card(
-        elevation: 30,
+        elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
           side: const BorderSide(

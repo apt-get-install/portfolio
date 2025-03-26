@@ -29,7 +29,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
         title: const Row(
           children: [
             Spacer(
-              flex: 3,
+              flex: 20,
             ),
             TabsWeb(title: "Home", route: "/"),
             Spacer(),
