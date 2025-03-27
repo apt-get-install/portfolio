@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/components.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:timelines/timelines.dart';
 
 class ProjectsMobile extends StatefulWidget {
   const ProjectsMobile({super.key});
@@ -38,36 +39,103 @@ class _ProjectsMobileState extends State<ProjectsMobile> {
             ];
           },
           body: ListView(
-            children: const [
+            children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
                     height: 20.0,
                   ),
-                  SansBold(text: "Works", size: 35.0),
+                  SansBold(text: "History", size: 35.0),
                   SizedBox(
                     height: 20.0,
                   ),
-                  AnimatedCard(
-                    imagePath: "assets/portfolio_screenshot.png",
-                    fit: BoxFit.contain,
-                    height: 150.0,
-                    width: 300.0,
-                  ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  SansBold(text: "Portfilio", size: 20.0),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Sans(text: "블라블라 했어요 그런 프로젝트에요", size: 15.0),
-                  ),
+                  // AnimatedCard(
+                  //   imagePath: "assets/portfolio_screenshot.png",
+                  //   fit: BoxFit.contain,
+                  //   height: 150.0,
+                  //   width: 300.0,
+                  // ),
+                  // SizedBox(
+                  //   height: 30.0,
+                  // ),
+                  // SansBold(text: "Portfilio", size: 20.0),
+                  // SizedBox(
+                  //   height: 10.0,
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  //   child: Sans(text: "블라블라 했어요 그런 프로젝트에요", size: 15.0),
+                  // ),
                 ],
               ),
+              Column(
+              children: [
+                OutlinedDotIndicator(
+                  color: Colors.teal,
+                  size: 20,
+                  child: Icon(
+                    Icons.check,
+                    size: 15,
+                  ),
+                ),
+                FixedTimeline.tileBuilder(
+                  theme: TimelineThemeData(
+                    color: Colors.teal,
+                    indicatorTheme: const IndicatorThemeData(
+                      size: 20,
+                    ),
+                  ),
+                  builder: TimelineTileBuilder.connectedFromStyle(
+                    contentsAlign: ContentsAlign.basic,
+                    oppositeContentsBuilder: (context, index) => const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('opposite\ncontents'),
+                    ),
+                    contentsBuilder: (context, index) => const Card(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Contents'),
+                      ),
+                    ),
+                    connectorStyleBuilder: (context, index) =>
+                        ConnectorStyle.solidLine,
+                    indicatorStyleBuilder: (context, index) =>
+                        IndicatorStyle.outlined,
+                    itemCount: 1,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20.0,
+                  child: SolidLineConnector(
+                    color: Colors.teal,
+                  ),
+                ),
+                FixedTimeline.tileBuilder(
+                  theme: TimelineThemeData(
+                    color: Colors.teal,
+                  ),
+                  builder: TimelineTileBuilder.connectedFromStyle(
+                    contentsAlign: ContentsAlign.basic,
+                    oppositeContentsBuilder: (context, index) => const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('opposite\ncontents'),
+                    ),
+                    contentsBuilder: (context, index) => const Card(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('Contents'),
+                      ),
+                    ),
+                    connectorStyleBuilder: (context, index) =>
+                        ConnectorStyle.solidLine,
+                    indicatorStyleBuilder: (context, index) =>
+                        IndicatorStyle.dot,
+                    itemCount: 2,
+                  ),
+                ),
+              ],
+            ),
             ],
           ),
         ),
