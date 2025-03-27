@@ -50,7 +50,7 @@ class _AboutWebState extends State<AboutWeb> {
           // first section
           // ignore: sized_box_for_whitespace
           const SizedBox(
-            height: 500.0,
+            height: 400.0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -100,10 +100,6 @@ class _AboutWebState extends State<AboutWeb> {
                           width: 10.0,
                         ),
                         SkillContainerWeb(text: "Javascript"),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        SkillContainerWeb(text: "Vue.js"),
                       ],
                     ),
                     SizedBox(
@@ -144,64 +140,15 @@ class _AboutWebState extends State<AboutWeb> {
             ),
           ),
           // second page
-          // ignore: sized_box_for_whitespace
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const AnimatedCard(
-                imagePath: "assets/webL.png",
-                height: 250.0,
-                width: 250.0,
-              ),
-              SizedBox(
-                width: widthDevice / 3,
-                child: const Column(
-                  children: [
-                    SansBold(text: "Web Dev", size: 30.0),
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    Sans(text: "웹 잘해용", size: 15.0),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(
-                width: widthDevice / 3,
-                child: const Column(
-                  children: [
-                    SansBold(text: "App Dev", size: 30.0),
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    Sans(text: "App 잘해용", size: 15.0),
-                  ],
-                ),
-              ),
-              const AnimatedCard(
-                imagePath: "assets/app.png",
-                height: 250.0,
-                width: 250.0,
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          //Third row
+          // education, company
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              const SizedBox(
+                width: 200,
+              ),
               SizedBox(
-                width: widthDevice / 2.5,
+                width: widthDevice / 3,
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -219,7 +166,94 @@ class _AboutWebState extends State<AboutWeb> {
                 ),
               ),
               SizedBox(
-                width: widthDevice / 2.5,
+                width: widthDevice / 3,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SansBold(
+                      text: "회사",
+                      size: 30,
+                    ),
+                    SizedBox(
+                      child: Divider(
+                        color: Colors.teal,
+                        thickness: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 200,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const SizedBox(
+                width: 200,
+              ),
+              SizedBox(
+                height: 100,
+                width: widthDevice / 3,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Sans(
+                      text: "2019.08 : 성결대학교 영어영문학과/컴퓨터공학과(복수전공) 졸업",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2010.02 : 양명고등학교(인문계) 졸업",
+                      size: 15,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 100,
+                width: widthDevice / 3,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Sans(
+                      text: "2021.07 -   재직중  : LS ITC㈜ | Java 웹 시스템 개발 및 운영",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2020.07 - 2021.07 : 에임시스템㈜ | Java 웹 시스템 개발",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2019.02 - 2020.06 : ㈜블루비즈랩 | Java 웹 시스템 개발",
+                      size: 15,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 200,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 40.0,
+          ),
+          // certi, projects
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const SizedBox(
+                width: 200,
+              ),
+              SizedBox(
+                width: widthDevice / 3,
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -236,6 +270,27 @@ class _AboutWebState extends State<AboutWeb> {
                   ],
                 ),
               ),
+              SizedBox(
+                width: widthDevice / 3,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SansBold(
+                      text: "프로젝트",
+                      size: 30,
+                    ),
+                    SizedBox(
+                      child: Divider(
+                        color: Colors.teal,
+                        thickness: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                width: 200,
+              ),
             ],
           ),
           const SizedBox(
@@ -244,56 +299,11 @@ class _AboutWebState extends State<AboutWeb> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
-                width: widthDevice / 3,
-                child: DataTable(
-                  columns: const [
-                    DataColumn(label: Text('이름')),
-                    DataColumn(
-                      label: Text('출생년도'),
-                      numeric: true,
-                    ),
-                    DataColumn(label: Text('성별')),
-                    DataColumn(label: Text('최종학력')),
-                    DataColumn(label: Text('고향')),
-                  ],
-                  rows: const [
-                    DataRow(
-                      cells: [
-                        DataCell(Text('철수')),
-                        DataCell(Text('1977')),
-                        DataCell(Text('남')),
-                        DataCell(Text('학사')),
-                        DataCell(Text('부산')),
-                      ],
-                    ),
-                    DataRow(
-                      cells: [
-                        DataCell(Text('영희')),
-                        DataCell(Text('1981')),
-                        DataCell(Text('여')),
-                        DataCell(Text('석사')),
-                        DataCell(Text('서울')),
-                      ],
-                    ),
-                  ],
-                ),
-                // const Column(
-                //   mainAxisAlignment: MainAxisAlignment.start,
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     Sans(
-                //       text: "2019.08 : 성결대학교 영어영문학과/컴퓨터공학과(복수전공) 졸업",
-                //       size: 15,
-                //     ),
-                //     Sans(
-                //       text: "2010.02 : 양명고등학교(인문계) 졸업",
-                //       size: 15,
-                //     ),
-                //   ],
-                // ),
+              const SizedBox(
+                width: 200,
               ),
               SizedBox(
+                height: 500,
                 width: widthDevice / 3,
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -314,8 +324,63 @@ class _AboutWebState extends State<AboutWeb> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 500,
+                width: widthDevice / 3,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Sans(
+                      text: "2024.10 - 2025.02 : 레거시 시스템 간편결재 시스템 연동",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2024.01 - 2025.12 : TMS(수배송관리) 시스템 운영",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2023.10 - 2024.06 : FMS(설비관리) 시스템 운영",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2023.05 - 2023.10 : MES 시스템 운영",
+                      size: 15,
+                    ),
+                    Sans(
+                      text:
+                          "2021.08 - 2022.04 : 현대차 울산2공장 E-FOREST 지능형 공장 시스템 구축",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2020.10 - 2021.07 : MES 시스템 구축",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2020.08 - 2020.09 : MES 시스템 구축",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2020.01 - 2020.06 : PLM 시스템 운영",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2019.05 - 2019.11 : PLM 전지(프로세스)통합 프로젝트",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2016.10 - 2016.12 : 스마트팩토리 시스템 구축",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "2016.02 - 2016.09 : 스마트팩토리(절단장비 모니터링) 시스템 구축 ",
+                      size: 15,
+                    ),
+                  ],
+                ),
+              ),
               const SizedBox(
-                height: 40,
+                width: 200,
               ),
             ],
           ),
