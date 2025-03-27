@@ -114,7 +114,7 @@ class _ProjectsWebState extends State<ProjectsWeb> {
                     ),
                   ),
                   builder: TimelineTileBuilder.connectedFromStyle(
-                    contentsAlign: ContentsAlign.basic,
+                    contentsAlign: ContentsAlign.reverse,
                     oppositeContentsBuilder: (context, index) => const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text('opposite\ncontents'),

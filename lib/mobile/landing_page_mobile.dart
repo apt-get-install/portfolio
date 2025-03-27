@@ -135,121 +135,121 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
             height: 70,
           ),
           // About Me, Second Section
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SansBold(text: "About Me", size: 35),
-                const Sans(text: "Hello 전 최수호에요. 웹개발자 제조에요", size: 15),
-                const Sans(text: "제조 도메인으로 일했구, MES를 주로 했어요", size: 15),
-                const Sans(text: "Java, Spring이 주 기술 스택이에요", size: 15),
-                const SizedBox(
-                  height: 10,
-                ),
-                Wrap(
-                  spacing: 7.0,
-                  runSpacing: 7.0,
-                  children: [
-                    tealContainer("Java"),
-                    tealContainer("Spring"),
-                    tealContainer("React"),
-                    tealContainer("Flutter"),
-                    tealContainer("Dart"),
-                    tealContainer("Python"),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 60,
-          ),
-          // What I do, Third Section
-          const Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SansBold(text: "What I do?", size: 35),
-              AnimatedCard(
-                imagePath: "assets/webL.png",
-                text: "Web Dev",
-                width: 300,
-              ),
-              SizedBox(
-                height: 35.0,
-              ),
-              AnimatedCard(
-                imagePath: "assets/app.png",
-                text: "App Dev",
-                width: 300,
-                fit: BoxFit.contain,
-                reverse: true,
-              ),
-              SizedBox(
-                height: 35.0,
-              ),
-              AnimatedCard(
-                imagePath: "assets/firebase.png",
-                text: "Back Dev",
-                width: 300,
-              ),
-              SizedBox(
-                height: 60.0,
-              ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(
+          //     horizontal: 20.0,
+          //   ),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: [
+          //       const SansBold(text: "About Me", size: 35),
+          //       const Sans(text: "Hello 전 최수호에요. 웹개발자 제조에요", size: 15),
+          //       const Sans(text: "제조 도메인으로 일했구, MES를 주로 했어요", size: 15),
+          //       const Sans(text: "Java, Spring이 주 기술 스택이에요", size: 15),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Wrap(
+          //         spacing: 7.0,
+          //         runSpacing: 7.0,
+          //         children: [
+          //           tealContainer("Java"),
+          //           tealContainer("Spring"),
+          //           tealContainer("React"),
+          //           tealContainer("Flutter"),
+          //           tealContainer("Dart"),
+          //           tealContainer("Python"),
+          //         ],
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 60,
+          // ),
+          // // What I do, Third Section
+          // const Column(
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     SansBold(text: "What I do?", size: 35),
+          //     AnimatedCard(
+          //       imagePath: "assets/webL.png",
+          //       text: "Web Dev",
+          //       width: 300,
+          //     ),
+          //     SizedBox(
+          //       height: 35.0,
+          //     ),
+          //     AnimatedCard(
+          //       imagePath: "assets/app.png",
+          //       text: "App Dev",
+          //       width: 300,
+          //       fit: BoxFit.contain,
+          //       reverse: true,
+          //     ),
+          //     SizedBox(
+          //       height: 35.0,
+          //     ),
+          //     AnimatedCard(
+          //       imagePath: "assets/firebase.png",
+          //       text: "Back Dev",
+          //       width: 300,
+          //     ),
+          //     SizedBox(
+          //       height: 60.0,
+          //     ),
 
-              // Contact Fourth Section
-              // Wrap(
-              //   runSpacing: 20.0,
-              //   spacing: 20.0,
-              //   alignment: WrapAlignment.center,
-              //   children: [
-              //     const SansBold(text: "Contct Me", size: 35.0),
-              //     TextForm(
-              //       heading: "First Name",
-              //       containerWidth: widthDevice / 1.4,
-              //       hintText: "Please type your first name",
-              //     ),
-              //     TextForm(
-              //       heading: "Last Name",
-              //       containerWidth: widthDevice / 1.4,
-              //       hintText: "Please type your last name",
-              //     ),
-              //     TextForm(
-              //       heading: "Email",
-              //       containerWidth: widthDevice / 1.4,
-              //       hintText: "Please type your Email",
-              //     ),
-              //     TextForm(
-              //       heading: "Phone Number",
-              //       containerWidth: widthDevice / 1.4,
-              //       hintText: "Please type your Phone Number",
-              //     ),
-              //     TextForm(
-              //       heading: "Message",
-              //       containerWidth: widthDevice / 1.4,
-              //       hintText: "Message",
-              //       maxLines: 10,
-              //     ),
-              //     MaterialButton(
-              //       onPressed: () {},
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(10.0),
-              //       ),
-              //       height: 60.0,
-              //       minWidth: widthDevice / 2.2,
-              //       color: Colors.tealAccent,
-              //       child: const SansBold(text: "Submit", size: 20.0),
-              //     ),
-              //   ],
-              // ),
-              SizedBox(
-                height: 20.0,
-              ),
-            ],
-          ),
+          //     // Contact Fourth Section
+          //     // Wrap(
+          //     //   runSpacing: 20.0,
+          //     //   spacing: 20.0,
+          //     //   alignment: WrapAlignment.center,
+          //     //   children: [
+          //     //     const SansBold(text: "Contct Me", size: 35.0),
+          //     //     TextForm(
+          //     //       heading: "First Name",
+          //     //       containerWidth: widthDevice / 1.4,
+          //     //       hintText: "Please type your first name",
+          //     //     ),
+          //     //     TextForm(
+          //     //       heading: "Last Name",
+          //     //       containerWidth: widthDevice / 1.4,
+          //     //       hintText: "Please type your last name",
+          //     //     ),
+          //     //     TextForm(
+          //     //       heading: "Email",
+          //     //       containerWidth: widthDevice / 1.4,
+          //     //       hintText: "Please type your Email",
+          //     //     ),
+          //     //     TextForm(
+          //     //       heading: "Phone Number",
+          //     //       containerWidth: widthDevice / 1.4,
+          //     //       hintText: "Please type your Phone Number",
+          //     //     ),
+          //     //     TextForm(
+          //     //       heading: "Message",
+          //     //       containerWidth: widthDevice / 1.4,
+          //     //       hintText: "Message",
+          //     //       maxLines: 10,
+          //     //     ),
+          //     //     MaterialButton(
+          //     //       onPressed: () {},
+          //     //       shape: RoundedRectangleBorder(
+          //     //         borderRadius: BorderRadius.circular(10.0),
+          //     //       ),
+          //     //       height: 60.0,
+          //     //       minWidth: widthDevice / 2.2,
+          //     //       color: Colors.tealAccent,
+          //     //       child: const SansBold(text: "Submit", size: 20.0),
+          //     //     ),
+          //     //   ],
+          //     // ),
+          //     SizedBox(
+          //       height: 20.0,
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
