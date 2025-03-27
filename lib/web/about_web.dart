@@ -205,7 +205,7 @@ class _AboutWebState extends State<AboutWeb> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Sans(
-                      text: "2019.08 : 성결대학교 영어영문학과/컴퓨터공학과(복수전공) 졸업",
+                      text: "2019.08 : 성결대학교 영어영문/컴퓨터공학(복수전공) 졸업",
                       size: 15,
                     ),
                     Sans(
@@ -373,7 +373,7 @@ class _AboutWebState extends State<AboutWeb> {
                       size: 15,
                     ),
                     Sans(
-                      text: "2016.02 - 2016.09 : 스마트팩토리(절단장비 모니터링) 시스템 구축 ",
+                      text: "2016.02 - 2016.09 : 스마트팩토리(모니터링) 시스템 구축 ",
                       size: 15,
                     ),
                   ],
