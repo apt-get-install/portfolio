@@ -1,8 +1,9 @@
+import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:timeline_list/timeline_list.dart';
-import 'package:timeline_tile/timeline_tile.dart';
+import 'package:logger/web.dart';
+import 'package:timelines/timelines.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TabsWeb extends StatefulWidget {
@@ -185,12 +186,16 @@ class TextForm extends StatelessWidget {
     required this.containerWidth,
     required this.hintText,
     this.maxLines,
+    this.controller,
+    this.validator,
   });
 
   final heading;
   final containerWidth;
   final hintText;
   final maxLines;
+  final controller;
+  final validator;
 
   @override
   Widget build(BuildContext context) {
@@ -211,15 +216,26 @@ class TextForm extends StatelessWidget {
             //   LengthLimitingTextInputFormatter(10),
             //   FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9]')),
             // ],
+            validator: validator,
+            controller: controller,
             maxLines: maxLines,
             decoration: InputDecoration(
-              focusedErrorBorder: const OutlineInputBorder(
+              errorBorder: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Colors.red,
                   width: 2.0,
                 ),
                 borderRadius: BorderRadius.all(
                   Radius.circular(10.0),
+                ),
+              ),
+              focusedErrorBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.red,
+                  width: 2.0,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15.0),
                 ),
               ),
               enabledBorder: const OutlineInputBorder(
@@ -245,13 +261,13 @@ class TextForm extends StatelessWidget {
                 fontSize: 14.0,
               ),
             ),
-            validator: (text) {
-              if (RegExp("\\bsooho\\b", caseSensitive: false)
-                  .hasMatch(text.toString())) {
-                return "Match!";
-              }
-              return null;
-            },
+            // validator: (text) {
+            //   if (RegExp("\\bsooho\\b", caseSensitive: false)
+            //       .hasMatch(text.toString())) {
+            //     return "Match!";
+            //   }
+            //   return null;
+            // },
             // autovalidateMode: AutovalidateMode.onUserInteraction,
           ),
         ),
@@ -343,30 +359,42 @@ class _AnimatedCardState extends State<AnimatedCard>
 class ProjectInfo extends StatelessWidget {
   const ProjectInfo({
     super.key,
-    required this.isFirst,
-    required this.isLast,
-    required this.isPast,
+    required this.text,
+    required this.width,
+    required this.height,
+    required this.fontSize,
   });
 
-  final isFirst;
-  final isLast;
-  final isPast;
+  final text;
+  final width;
+  final height;
+  final fontSize;
 
   @override
   Widget build(BuildContext context) {
-    return TimelineTile(
-      isFirst: isFirst,
-      isLast: isLast,
-      beforeLineStyle: LineStyle(
-        color: isPast ? Colors.tealAccent : Colors.grey,
-        thickness: 2.0,
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+        side: const BorderSide(
+          color: Colors.tealAccent,
+        ),
       ),
-      indicatorStyle: IndicatorStyle(
-        width: 40.0,
-        color: isPast ? Colors.tealAccent : Colors.grey,
-        iconStyle: IconStyle(
-          color: isPast ? Colors.white : Colors.grey,
-          iconData: Icons.check,
+      shadowColor: Colors.tealAccent,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: width,
+              height: height,
+              child: SansBold(
+                text: text,
+                size: fontSize,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -551,6 +579,98 @@ class SkillContainerWeb extends StatelessWidget {
       child: Sans(
         text: text,
         size: 15,
+      ),
+    );
+  }
+}
+
+class AddDataFirestore {
+  var logger = Logger();
+  CollectionReference response =
+      FirebaseFirestore.instance.collection('messages');
+
+  Future<void> addResponse(
+    final firstName,
+    final lastName,
+    final email,
+    final phoneNumber,
+    final message,
+  ) async {
+    return response
+        .add({
+          'firstName': firstName,
+          'lastName': lastName,
+          'email': email,
+          'phoneNumber': phoneNumber,
+          'message': message,
+        })
+        .then((value) => logger.d("Success"))
+        .catchError((error) => logger.d(error));
+  }
+}
+
+Future dialogError(BuildContext context) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      title: const SansBold(text: "Success", size: 20.0),
+    ),
+  );
+}
+
+class ProjectInfoTimeLine extends StatelessWidget {
+  const ProjectInfoTimeLine({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.text,
+    this.year,
+    required this.fontSize,
+  });
+
+  final width;
+  final height;
+  final text;
+  final year;
+  final fontSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return FixedTimeline.tileBuilder(
+      theme: TimelineThemeData(
+        color: Colors.teal,
+        indicatorTheme: IndicatorThemeData(
+          size: year == null ? 10 : 15,
+        ),
+      ),
+      builder: TimelineTileBuilder.connectedFromStyle(
+        contentsAlign: ContentsAlign.basic,
+        contentsBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ProjectInfo(
+            text: text,
+            width: width,
+            height: height,
+            fontSize: fontSize,
+          ),
+        ),
+        oppositeContentsBuilder: (context, index) => Card(
+          child: Padding(
+            padding: year == null
+                ? const EdgeInsets.all(0.0)
+                : const EdgeInsets.all(10.0),
+            child: SansBold(
+              text: year ?? "",
+              size: 15,
+            ),
+          ),
+        ),
+        connectorStyleBuilder: (context, index) => ConnectorStyle.solidLine,
+        indicatorStyleBuilder: (context, index) => IndicatorStyle.outlined,
+        itemCount: 1,
       ),
     );
   }

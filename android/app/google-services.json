@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "492474119544",
+    "project_id": "sooho-choi",
+    "storage_bucket": "sooho-choi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492474119544:android:2afa6510f03ad7b8c1c48d",
+        "android_client_info": {
+          "package_name": "com.example.portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkf_6krZQk_nfgPJRIk4mKTLaBAIystbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/components.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LandingPageMobile extends StatefulWidget {
   const LandingPageMobile({super.key});

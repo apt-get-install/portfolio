@@ -1,8 +1,9 @@
+import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logger/web.dart';
 import 'package:portfolio/components.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BlogMobile extends StatefulWidget {
   const BlogMobile({super.key});
@@ -12,6 +13,41 @@ class BlogMobile extends StatefulWidget {
 }
 
 class _BlogMobileState extends State<BlogMobile> {
+  // void article() async {
+  //   await FirebaseFirestore.instance
+  //       .collection("article")
+  //       .get()
+  //       .then((querySnapshot) {
+  //     for (var elemnet in querySnapshot.docs.reversed) {
+  //       // print(elemnet.data()['body']);
+  //     }
+  //   });
+  // }
+
+  // void streamArticle() async {
+  //   Logger logger = Logger();
+  //   await for (var snapshot
+  //       in FirebaseFirestore.instance.collection("article").snapshots()) {
+  //     for (var title in snapshot.docs) {
+  //       logger.t(title.data()['title']);
+  //     }
+  //   }
+  // }
+
+  // @override
+  // void initState() {
+  //   streamArticle();
+  //   //article();
+  //   super.initState();
+  // }
+
+  // List<String> title = ["Sample Title 1", "Sample Title 2", "Sample Title 3"];
+  // List<String> body = [
+  //   "This is the body of the first blog post.",
+  //   "This is the body of the second blog post.",
+  //   "This is the body of the third blog post.",
+  // ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -53,12 +89,28 @@ class _BlogMobileState extends State<BlogMobile> {
               ),
             ];
           },
-          body: ListView(
-            children: const [
-              BlogPost(),
-              BlogPost(),
-              BlogPost(),
-            ],
+          body: StreamBuilder<QuerySnapshot>(
+            stream:
+                FirebaseFirestore.instance.collection("article").snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    DocumentSnapshot documentSnapshot =
+                        snapshot.data!.docs[index];
+                    return BlogPost(
+                      title: documentSnapshot["title"],
+                      body: documentSnapshot["body"],
+                    );
+                  },
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
           ),
         ),
       ),
@@ -67,7 +119,14 @@ class _BlogMobileState extends State<BlogMobile> {
 }
 
 class BlogPost extends StatefulWidget {
-  const BlogPost({super.key});
+  const BlogPost({
+    super.key,
+    required this.title,
+    required this.body,
+  });
+
+  final String title;
+  final String body;
 
   @override
   State<BlogPost> createState() => _BlogPostState();
@@ -106,8 +165,8 @@ class _BlogPostState extends State<BlogPost> {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(3.0),
                   ),
-                  child: const AbleCustom(
-                    text: "Who is Sooho?",
+                  child: AbleCustom(
+                    text: widget.title.toString(),
                     size: 25.0,
                     color: Colors.white,
                   ),
@@ -126,7 +185,7 @@ class _BlogPostState extends State<BlogPost> {
               height: 7.0,
             ),
             Text(
-              "Now, a tiny sprinkle of extra news. If you've ever wished for personalized support during your coding journey, there's a souped-up version of this course with just that! Just pop into Google and type in 'coding liquids flutter', and it'll lead you right to our doorstep.",
+              widget.body.toString(),
               style: GoogleFonts.openSans(fontSize: 15.0),
               maxLines: expand == true ? null : 3,
               overflow:

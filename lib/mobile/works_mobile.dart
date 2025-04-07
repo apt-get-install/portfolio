@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/components.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class WorksMobile extends StatefulWidget {
   const WorksMobile({super.key});
