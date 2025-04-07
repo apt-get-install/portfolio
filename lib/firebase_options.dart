@@ -45,31 +45,4 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBNd-ejUMPlRaCFe6DJs6oY6k-Flz_Dtlg',
-    appId: '1:492474119544:web:c7c5243664905a26c1c48d',
-    messagingSenderId: '492474119544',
-    projectId: 'sooho-choi',
-    authDomain: 'sooho-choi.firebaseapp.com',
-    storageBucket: 'sooho-choi.firebasestorage.app',
-    measurementId: 'G-1ENWLKEWM5',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAkf_6krZQk_nfgPJRIk4mKTLaBAIystbE',
-    appId: '1:492474119544:android:2afa6510f03ad7b8c1c48d',
-    messagingSenderId: '492474119544',
-    projectId: 'sooho-choi',
-    storageBucket: 'sooho-choi.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBSXLH5yytWSIUHijIolvPpQaVIXvlL634',
-    appId: '1:492474119544:ios:5bc8a02edbb321d0c1c48d',
-    messagingSenderId: '492474119544',
-    projectId: 'sooho-choi',
-    storageBucket: 'sooho-choi.firebasestorage.app',
-    iosBundleId: 'com.example.portfolio',
-  );
 }
