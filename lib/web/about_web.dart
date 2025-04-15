@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/components.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutWeb extends StatefulWidget {
   const AboutWeb({super.key});
@@ -77,6 +80,10 @@ class _AboutWebState extends State<AboutWeb> {
                     ),
                     Sans(
                       text: "이 홈페이지는 Flutter를 공부하며 만들었습니다.",
+                      size: 15,
+                    ),
+                    Sans(
+                      text: "모바일과 PC웹 환경에 반응형으로 구현하였습니다.",
                       size: 15,
                     ),
                     SizedBox(

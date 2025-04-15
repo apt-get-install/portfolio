@@ -372,29 +372,35 @@ class ProjectInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
-        side: const BorderSide(
-          color: Colors.tealAccent,
+    return SizedBox(
+      width: width,
+      child: Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+          side: const BorderSide(
+            color: Colors.tealAccent,
+          ),
         ),
-      ),
-      shadowColor: Colors.tealAccent,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: width,
-              height: height,
-              child: SansBold(
-                text: text,
-                size: fontSize,
+        shadowColor: Colors.tealAccent,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: width,
+                height: height,
+                child: FittedBox(
+                  alignment: Alignment.topLeft,
+                  child: SansBold(
+                    text: text,
+                    size: fontSize,
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

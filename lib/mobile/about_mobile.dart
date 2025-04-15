@@ -93,6 +93,10 @@ class _AboutMobileState extends State<AboutMobile> {
                       text: "이 홈페이지는 Flutter를 공부하며 만들었습니다.",
                       size: 15,
                     ),
+                    const Sans(
+                      text: "모바일과 PC웹 환경에 반응형으로 구현하였습니다.",
+                      size: 15,
+                    ),
                     const SizedBox(
                       height: 15,
                     ),

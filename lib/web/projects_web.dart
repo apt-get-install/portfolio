@@ -61,27 +61,10 @@ class _ProjectsWebState extends State<ProjectsWeb> {
                 SizedBox(
                   height: 20.0,
                 ),
-                SansBold(text: "History", size: 35.0),
+                SansBold(text: "Projects", size: 35.0),
                 SizedBox(
                   height: 20.0,
                 ),
-                // AnimatedCard(
-                //   imagePath: "assets/portfolio_screenshot.png",
-                //   fit: BoxFit.contain,
-                //   height: 150.0,
-                //   width: 300.0,
-                // ),
-                // SizedBox(
-                //   height: 30.0,
-                // ),
-                // SansBold(text: "Portfilio", size: 20.0),
-                // SizedBox(
-                //   height: 10.0,
-                // ),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 20.0),
-                //   child: Sans(text: "블라블라 했어요 그런 프로젝트에요", size: 15.0),
-                // ),
               ],
             ),
             Column(
